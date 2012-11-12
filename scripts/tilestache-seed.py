@@ -15,6 +15,8 @@ from optparse import OptionParser
 from urlparse import urlparse
 from urllib import urlopen
 
+path.append('/projects/tilestache')
+
 try:
     from json import dump as json_dump
     from json import load as json_load
