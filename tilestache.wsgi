@@ -1,6 +1,8 @@
 import os
 import sys
-sys.path.append('/projects/tilestache')
+cd = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(cd)
+print sys.path
 import TileStache
 
-application = TileStache.WSGITileServer('/projects/tilestache/tilestache.cfg', False)
+application = TileStache.WSGITileServer(cd + 'tilestache.cfg', False)
