@@ -5,4 +5,6 @@ sys.path.append(cd)
 print sys.path
 import TileStache
 
-application = TileStache.WSGITileServer(cd + 'tilestache.cfg', False)
+application = TileStache.WSGITileServer(cd + '/tilestache.cfg', False)
+
+
