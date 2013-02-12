@@ -7,5 +7,5 @@ from TileStache import Goodies
 from TileStache.Goodies import ExternalConfigServer
 
 #application = TileStache.WSGITileServer(cd + '/tilestache.cfg', False)
-
 application = ExternalConfigServer.WSGIServer("http://localhost:3000/config/tileserver")
+
