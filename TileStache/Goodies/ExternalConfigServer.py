@@ -37,6 +37,14 @@ class DynamicLayers:
 		return TileStache.Config._parseConfigfileLayer(layer_dict, self.config, self.dirpath)
 	
 	def __contains__(self, key):
+		# We want a way to expire layer configuration and have it re-request it from config server
+		# but also keep caching enabled for performance. The following snippet of code will 
+		# delete a layer config if it receives a request for a layer followed by '_REFRESH'.
+		print "contains " + key
+		if key != None and key.endswith("_REFRESH"):
+		    new_key = key.replace("_REFRESH", "")
+		    del self.seen_layers[new_key]
+		    return self.__contains__(new_key)
 		# If caching is enabled and we've seen a request for this layer before, return True unless
 		# the prior lookup failed to find this layer.
 		if self.cache_responses:
@@ -70,6 +78,14 @@ class DynamicLayers:
 		return res.getcode() == 200
 	
 	def __getitem__(self, key):
+		# We want a way to expire layer configuration and have it re-request it from config server
+		# but also keep caching enabled for performance. The following snippet of code will 
+		# delete a layer config if it receives a request for a layer followed by '_REFRESH'.
+		print "getitem " + key
+		if key != None and key.endswith("_REFRESH"):
+		    new_key = key.replace("_REFRESH", "")
+		    del self.seen_layers[new_key]
+		    return self.__getitem__(new_key)
 		if self.cache_responses:
 			if key in self.seen_layers:
 				return self.seen_layers[key]

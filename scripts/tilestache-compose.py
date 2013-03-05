@@ -101,8 +101,6 @@ There are three ways to set a map coverage area.
 
 defaults = dict(center=(37.8044, -122.2712), zoom=14, dimensions=(900, 600), verbose=True)
 
-parser.set_defaults(**defaults)
-
 parser.add_option('-c', '--config', dest='config',
                   help='Path to configuration file.')
 
