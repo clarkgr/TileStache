@@ -101,6 +101,8 @@ There are three ways to set a map coverage area.
 
 defaults = dict(center=(37.8044, -122.2712), zoom=14, dimensions=(900, 600), verbose=True)
 
+parser.set_defaults(**defaults)
+
 parser.add_option('-c', '--config', dest='config',
                   help='Path to configuration file.')
 
@@ -108,7 +110,7 @@ parser.add_option('-l', '--layer', dest='layer',
                   help='Layer name from configuration.')
 
 parser.add_option('-n', '--center', dest='center', nargs=2,
-                  help='Geographic center of map. Default %.4f, %.4f.' % defaults['center'], type='float',
+                  help='Geographic center of map.', type='float',
                   action='store')
 
 parser.add_option('-e', '--extent', dest='extent', nargs=4,
@@ -116,11 +118,11 @@ parser.add_option('-e', '--extent', dest='extent', nargs=4,
                   action='store')
 
 parser.add_option('-z', '--zoom', dest='zoom',
-                  help='Zoom level. Default %(zoom)d.' % defaults, type='int',
+                  help='Zoom level.', type='int',
                   action='store')
 
 parser.add_option('-d', '--dimensions', dest='dimensions', nargs=2,
-                  help='Pixel width, height of output image. Default %d, %d.' % defaults['dimensions'], type='int',
+                  help='Pixel width, height of output image.', type='int',
                   action='store')
 
 parser.add_option('-v', '--verbose', dest='verbose',
