@@ -333,6 +333,8 @@ class Layer:
         self.bitmap_palette = None
         self.jpeg_options = {}
         self.png_options = {}
+        
+        self.layer_name = None
 
     def name(self):
         """ Figure out what I'm called, return a name if there is one.
@@ -340,11 +342,12 @@ class Layer:
             Layer names are stored in the Configuration object, so
             config.layers must be inspected to find a matching name.
         """
-        for (name, layer) in self.config.layers.items():
-            if layer is self:
-                return name
+        if self.layer_name == None:
+            for (name, layer) in self.config.layers.items():
+                if layer is self:
+                    self.layer_name =name
 
-        return None
+        return self.layer_name
 
     def doMetatile(self):
         """ Return True if we have a real metatile and the provider is OK with it.
