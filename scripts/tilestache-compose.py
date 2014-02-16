@@ -99,7 +99,7 @@ There are three ways to set a map coverage area.
    
    tilestache-compose.py -c config.json -l layer-name -e 36.9 -123.5 38.9 -121.2 -z 9 out.jpg""")
 
-defaults = dict(center=(37.8044, -122.2712), zoom=14, dimensions=(900, 600), verbose=True)
+defaults = dict(verbose=True)
 
 parser.set_defaults(**defaults)
 

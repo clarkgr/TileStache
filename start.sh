@@ -1,8 +1,8 @@
 #!/bin/bash
  
 NAME="TileStache"                                 # Name of the application
-DIR=/home/user/TileStache                         # Project directory
-SOCKFILE=/home/user/TileStache/tilestache.sock    # we will communicte using this unix socket
+DIR=/home/user/tilestache                         # Project directory
+SOCKFILE=/home/user/tilestache/tilestache.sock    # we will communicte using this unix socket
 USER=user                                         # the user to run as
 GROUP=user                                        # the group to run as
 NUM_WORKERS=4                                     # how many worker processes should Gunicorn spawn
