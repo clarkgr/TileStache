@@ -23,6 +23,8 @@ cd $DIR
 exec /usr/bin/gunicorn server:application \
   --name $NAME \
   --workers $NUM_WORKERS \
+  --backlog=512 \
+  --timeout 60 \
   --user=$USER --group=$GROUP \
   --log-level=info \
   --bind=unix:$SOCKFILE
